@@ -8,7 +8,7 @@ import httplib2
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import HttpRequest
-from datetime import datetime, timedelta
+from datetime import datetime
 import pytz
 import json
 import ctypes
@@ -61,8 +61,7 @@ class CSpreadSheetCtrl:
             # --- 認証OKかどうか -----------------
             if self.gsheet == None:
                 return False
-            # --- シート名の設定 -----------------
-            # self.sheet_name = (datetime.now()+timedelta(hours=9)).strftime('%Y%m%d')
+            # --- シート名の設定 -----------------            
             self.sheet_name = datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y%m%d')
             # --- シートの有無確認 & 作成 --------
             result = self.is_exist_sheet(self.sheet_name) 
@@ -142,7 +141,6 @@ class CSpreadSheetCtrl:
             if self.gsheet == None:
                 return 0
             # --- シート名の設定 -----------------
-            # self.sheet_name = (datetime.now()+timedelta(hours=9)).strftime('%Y%m%d')
             self.sheet_name = datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y%m%d')
             # シートが存在するかどうか確認
             sheet_exists = self.is_exist_sheet(self.sheet_name)
