@@ -174,7 +174,6 @@ class CSpreadSheetCtrl:
             return 0, None
         
 def main():
-    st.write(datetime.now())
     # ページの設定
     st.set_page_config(page_title="Index", page_icon="🧊")
 
