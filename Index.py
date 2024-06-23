@@ -190,8 +190,10 @@ def main():
 
     # urlから暗号化されたパラメータを取得
     try:
-        params = st.query_params
-        encrypted_data = params["defprm"]
+        # params = st.query_params
+        # encrypted_data = params["defprm"]
+        params = st.experimental_get_query_params()
+        encrypted_data = params["defprm"][0]
     except KeyError:
         return f"ERROR: {str(e)}"
     
